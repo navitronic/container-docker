@@ -30,6 +30,7 @@ macOS (DOCKER_HOST=tcp://<machine-ip>:2375)
 | `daemon.json` | Docker daemon config — TCP listener on :2375, host-gateway-ip for host.docker.internal |
 | `Makefile` | Build/lifecycle targets: setup, build, create, run, stop, destroy |
 | `setup-host.sh` | Configures macOS DOCKER_HOST, verifies connectivity and volume mounts |
+| `env.sh` | Sourceable shell snippet that sets DOCKER_HOST dynamically (for ~/.zshrc) |
 | `README.md` | Quickstart, troubleshooting |
 
 ## Build and Run

@@ -12,12 +12,16 @@ An Ubuntu container machine image for [Apple Container](https://github.com/apple
 
 ```sh
 make setup            # Build image and create the container machine
-./setup-host.sh       # Configure DOCKER_HOST and verify connectivity
+./setup-host.sh       # Verify connectivity and volume mounts
 ```
 
-Add the `DOCKER_HOST` export line the script prints to your shell profile (`~/.zshrc`), then restart your terminal or `source ~/.zshrc`.
+Add this to your `~/.zshrc` to set `DOCKER_HOST` automatically:
 
-Verify:
+```sh
+source /path/to/container-docker/env.sh
+```
+
+Then restart your terminal and verify:
 
 ```sh
 docker info
@@ -75,6 +79,7 @@ Override defaults: `make create CPUS=8 MEMORY=16G`
 | `MACHINE_NAME` | `docker-vm` | Container machine name |
 | `CPUS` | `4` | Virtual CPUs |
 | `MEMORY` | `8G` | RAM allocation |
+| `CONTAINER_DOCKER_MACHINE` | `docker-vm` | Machine name used by `env.sh` (set in shell profile before sourcing) |
 
 ## Troubleshooting
 
