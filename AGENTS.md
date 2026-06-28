@@ -45,7 +45,7 @@ make destroy      # Remove machine and all Docker state
 
 - Makefile is the entry point for all lifecycle operations
 - Variables (`IMAGE_NAME`, `MACHINE_NAME`, `CPUS`, `MEMORY`) are overridable via `make VAR=value`
-- Default machine name is `devel`
+- Default machine name is `docker-vm`
 - Docker daemon listens on TCP 2375 (no TLS — private vmnet only)
 - setup-host.sh auto-detects the machine IP; falls back from DNS (.test) to IP address
 

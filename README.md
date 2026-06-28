@@ -29,10 +29,10 @@ docker run hello-world
 ```
 macOS (docker CLI / docker compose)
   │
-  │  DOCKER_HOST=tcp://devel.test:2375
+  │  DOCKER_HOST=tcp://docker-vm.test:2375
   │
   ▼
-Apple Container Machine ("devel")
+Apple Container Machine ("docker-vm")
   ├── systemd (PID 1)
   ├── Docker Engine (TCP :2375)
   ├── /Users/<you> (auto-mounted from macOS)
@@ -71,8 +71,8 @@ Override defaults: `make create CPUS=8 MEMORY=16G`
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `IMAGE_NAME` | `local/devel` | OCI image tag |
-| `MACHINE_NAME` | `devel` | Container machine name |
+| `IMAGE_NAME` | `local/docker-vm` | OCI image tag |
+| `MACHINE_NAME` | `docker-vm` | Container machine name |
 | `CPUS` | `4` | Virtual CPUs |
 | `MEMORY` | `8G` | RAM allocation |
 
@@ -82,12 +82,12 @@ Override defaults: `make create CPUS=8 MEMORY=16G`
 
 Check the machine is running: `make docker-status`. If not, start it with `make run` (then type `exit` to return to macOS — the machine keeps running in the background).
 
-**DNS not resolving (devel.test)**
+**DNS not resolving (docker-vm.test)**
 
 Ensure `container system start` has been run. If DNS still fails, `setup-host.sh` falls back to the machine's IP address automatically. You can also get the IP manually:
 
 ```sh
-container machine inspect devel | grep address
+container machine inspect docker-vm | grep address
 export DOCKER_HOST=tcp://<ip>:2375
 ```
 

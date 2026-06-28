@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-MACHINE_NAME="${1:-devel}"
+MACHINE_NAME="${1:-docker-vm}"
 DOCKER_PORT=2375
 
 red()   { printf '\033[0;31m%s\033[0m\n' "$*"; }

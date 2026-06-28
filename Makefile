@@ -1,5 +1,5 @@
-IMAGE_NAME  ?= local/devel
-MACHINE_NAME ?= devel
+IMAGE_NAME  ?= local/docker-vm
+MACHINE_NAME ?= docker-vm
 CPUS        ?= 4
 MEMORY      ?= 8G
 
