@@ -5,7 +5,11 @@ An Ubuntu container machine image for [Apple Container](https://github.com/apple
 ## Prerequisites
 
 - macOS 26 on Apple silicon
-- [Apple Container](https://github.com/apple/container/releases) installed (`container system start` running)
+- [Apple Container](https://github.com/apple/container/releases) installed and running:
+  ```sh
+  brew install container
+  container system start
+  ```
 - Docker CLI on macOS: `brew install docker docker-compose`
 
 ## Quickstart
