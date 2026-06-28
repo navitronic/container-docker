@@ -63,7 +63,7 @@ RUN systemctl enable docker
 
 # Install QEMU user-static for amd64 emulation (runs x86_64 container images on arm64)
 RUN apt-get update && \
-    apt-get install -y qemu-user-static binfmt-support && \
+    apt-get install -y qemu-user-binfmt && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
