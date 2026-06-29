@@ -28,8 +28,8 @@ macOS (DOCKER_HOST=tcp://<machine-ip>:2375)
 |------|---------|
 | `Dockerfile` | Ubuntu 26.04 image with systemd, Docker CE, QEMU amd64 emulation |
 | `daemon.json` | Docker daemon config — TCP listener on :2375, host-gateway-ip for host.docker.internal |
-| `Makefile` | Build/lifecycle targets: setup, build, create, run, stop, destroy |
-| `setup-host.sh` | Configures macOS DOCKER_HOST, verifies connectivity and volume mounts |
+| `Makefile` | Build/lifecycle targets: setup, build, create, run, stop, destroy, verify |
+| `verify.sh` | Checks prerequisites, Docker connectivity, and volume mounts |
 | `env.sh` | Sourceable shell snippet that sets DOCKER_HOST dynamically (for ~/.zshrc) |
 | `README.md` | Quickstart, troubleshooting |
 
@@ -37,7 +37,8 @@ macOS (DOCKER_HOST=tcp://<machine-ip>:2375)
 
 ```sh
 make setup        # Build image + create machine
-./setup-host.sh   # Configure DOCKER_HOST, verify connectivity
+source env.sh     # Set DOCKER_HOST
+make verify       # Check connectivity and volume mounts
 make stop         # Stop the machine (Docker state persists)
 make destroy      # Remove machine and all Docker state
 ```
@@ -48,7 +49,7 @@ make destroy      # Remove machine and all Docker state
 - Variables (`IMAGE_NAME`, `MACHINE_NAME`, `CPUS`, `MEMORY`) are overridable via `make VAR=value`
 - Default machine name is `docker-vm`
 - Docker daemon listens on TCP 2375 (no TLS — private vmnet only)
-- setup-host.sh auto-detects the machine IP; falls back from DNS (.test) to IP address
+- `env.sh` dynamically resolves the machine IP; falls back from DNS (.test) to IP address
 
 ## Known Constraints
 

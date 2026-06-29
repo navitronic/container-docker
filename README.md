@@ -16,20 +16,20 @@ An Ubuntu container machine image for [Apple Container](https://github.com/apple
 
 ```sh
 make setup            # Build image and create the container machine
-./setup-host.sh       # Verify connectivity and volume mounts
+source env.sh         # Set DOCKER_HOST for this shell
+docker info           # Verify it works
 ```
 
-Add this to your `~/.zshrc` to set `DOCKER_HOST` automatically:
+Add `env.sh` to your shell profile so `DOCKER_HOST` is set in every new terminal:
 
 ```sh
-source /path/to/container-docker/env.sh
+echo 'source /path/to/container-docker/env.sh' >> ~/.zshrc
 ```
 
-Then restart your terminal and verify:
+To run the full verification suite (prerequisites, connectivity, volume mounts):
 
 ```sh
-docker info
-docker run hello-world
+make verify
 ```
 
 ## How It Works
@@ -72,6 +72,7 @@ Volume mounts referencing macOS paths (e.g., `-v /Users/you/Projects/app:/app`) 
 | `make destroy` | Remove machine and all Docker state |
 | `make status` | Show machine details (JSON) |
 | `make docker-status` | Check Docker daemon status |
+| `make verify` | Check prerequisites, connectivity, and volume mounts |
 
 Override defaults: `make create CPUS=8 MEMORY=16G`
 
@@ -93,7 +94,7 @@ Check the machine is running: `make docker-status`. If not, start it with `make 
 
 **DNS not resolving (docker-vm.test)**
 
-Ensure `container system start` has been run. If DNS still fails, `setup-host.sh` falls back to the machine's IP address automatically. You can also get the IP manually:
+Ensure `container system start` has been run. If DNS still fails, `env.sh` falls back to the machine's IP address automatically. You can also get the IP manually:
 
 ```sh
 container machine inspect docker-vm | grep address

@@ -94,11 +94,5 @@ fi
 
 rm -f "$TMPFILE"
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-
 echo ""
-bold "Add this to your shell profile (~/.zshrc):"
-echo ""
-echo "  source ${SCRIPT_DIR}/env.sh"
-echo ""
-green "Done."
+green "All checks passed."

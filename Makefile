@@ -3,7 +3,7 @@ MACHINE_NAME ?= docker-vm
 CPUS        ?= 4
 MEMORY      ?= 8G
 
-.PHONY: help build create setup run shell stop destroy status docker-status
+.PHONY: help build create setup run shell stop destroy status docker-status verify
 
 help:
 	@echo "Usage:"
@@ -16,6 +16,7 @@ help:
 	@echo "  make destroy        Remove the machine and its storage"
 	@echo "  make status         Show machine details (JSON)"
 	@echo "  make docker-status  Check Docker daemon status inside the machine"
+	@echo "  make verify         Check prerequisites, connectivity, and volume mounts"
 	@echo ""
 	@echo "Variables (override with make VAR=value):"
 	@echo "  IMAGE_NAME   $(IMAGE_NAME)"
@@ -47,3 +48,6 @@ status:
 
 docker-status:
 	container machine run -n $(MACHINE_NAME) -- systemctl status docker
+
+verify:
+	./verify.sh $(MACHINE_NAME)
