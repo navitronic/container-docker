@@ -1,11 +1,14 @@
 # container-docker
 
-An Ubuntu container machine image for [Apple Container](https://github.com/apple/container) that runs Docker Engine as a systemd service. A lightweight Docker Desktop replacement for macOS development.
+A lightweight Ubuntu container machine image for [Apple Container](https://github.com/apple/container) that runs Docker Engine as a systemd service.
+
+Can be used as a Docker Desktop replacement for macOS development.
 
 ## Prerequisites
 
 - macOS 26 on Apple silicon
 - [Apple Container](https://github.com/apple/container/releases) installed and running:
+
   ```sh
   brew install container
   container system start
