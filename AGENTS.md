@@ -24,14 +24,14 @@ macOS (DOCKER_HOST=tcp://<machine-ip>:2375)
 
 ## Key Files
 
-| File | Purpose |
-|------|---------|
-| `Dockerfile` | Ubuntu 26.04 image with systemd, Docker CE, QEMU amd64 emulation |
+| File          | Purpose                                                                                |
+| ------------- | -------------------------------------------------------------------------------------- |
+| `Dockerfile`  | Ubuntu 26.04 image with systemd, Docker CE, QEMU amd64 emulation                       |
 | `daemon.json` | Docker daemon config — TCP listener on :2375, host-gateway-ip for host.docker.internal |
-| `Makefile` | Build/lifecycle targets: setup, build, create, run, stop, destroy, verify |
-| `verify.sh` | Checks prerequisites, Docker connectivity, and volume mounts |
-| `env.sh` | Sourceable shell snippet that sets DOCKER_HOST dynamically (for ~/.zshrc) |
-| `README.md` | Quickstart, troubleshooting |
+| `Makefile`    | Build/lifecycle targets: setup, build, create, run, stop, destroy, verify              |
+| `verify.sh`   | Checks prerequisites, Docker connectivity, and volume mounts                           |
+| `env.sh`      | Sourceable shell snippet that sets DOCKER_HOST dynamically (for ~/.zshrc)              |
+| `README.md`   | Quickstart, troubleshooting                                                            |
 
 ## Build and Run
 

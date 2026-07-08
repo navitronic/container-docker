@@ -13,6 +13,7 @@ Can be used as a Docker Desktop replacement for macOS development.
   brew install container
   container system start
   ```
+
 - Docker CLI on macOS: `brew install docker docker-compose`
 
 ## Quickstart
@@ -65,29 +66,29 @@ Volume mounts referencing macOS paths (e.g., `-v /Users/you/Projects/app:/app`) 
 
 ## Makefile Targets
 
-| Target | Description |
-|--------|-------------|
-| `make setup` | Build image + create machine (full bootstrap) |
-| `make build` | Build the container image |
-| `make create` | Create the container machine |
-| `make run` / `make shell` | Interactive shell in the machine |
-| `make stop` | Stop the machine |
-| `make destroy` | Remove machine and all Docker state |
-| `make status` | Show machine details (JSON) |
-| `make docker-status` | Check Docker daemon status |
-| `make verify` | Check prerequisites, connectivity, and volume mounts |
+| Target                    | Description                                          |
+| ------------------------- | ---------------------------------------------------- |
+| `make setup`              | Build image + create machine (full bootstrap)        |
+| `make build`              | Build the container image                            |
+| `make create`             | Create the container machine                         |
+| `make run` / `make shell` | Interactive shell in the machine                     |
+| `make stop`               | Stop the machine                                     |
+| `make destroy`            | Remove machine and all Docker state                  |
+| `make status`             | Show machine details (JSON)                          |
+| `make docker-status`      | Check Docker daemon status                           |
+| `make verify`             | Check prerequisites, connectivity, and volume mounts |
 
 Override defaults: `make create CPUS=8 MEMORY=16G`
 
 ## Configuration
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `IMAGE_NAME` | `local/docker-vm` | OCI image tag |
-| `MACHINE_NAME` | `docker-vm` | Container machine name |
-| `CPUS` | `4` | Virtual CPUs |
-| `MEMORY` | `8G` | RAM allocation |
-| `CONTAINER_DOCKER_MACHINE` | `docker-vm` | Machine name used by `env.sh` (set in shell profile before sourcing) |
+| Variable                   | Default           | Description                                                          |
+| -------------------------- | ----------------- | -------------------------------------------------------------------- |
+| `IMAGE_NAME`               | `local/docker-vm` | OCI image tag                                                        |
+| `MACHINE_NAME`             | `docker-vm`       | Container machine name                                               |
+| `CPUS`                     | `4`               | Virtual CPUs                                                         |
+| `MEMORY`                   | `8G`              | RAM allocation                                                       |
+| `CONTAINER_DOCKER_MACHINE` | `docker-vm`       | Machine name used by `env.sh` (set in shell profile before sourcing) |
 
 ## Troubleshooting
 
